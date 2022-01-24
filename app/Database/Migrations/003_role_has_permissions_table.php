@@ -13,9 +13,9 @@ return [
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `role_id` int(11) NOT NULL,
         `permission_id` int(11) NOT NULL,
-        `created` timestamp NOT NULL,
-        `updated` timestamp DEFAULT CURRENT_TIMESTAMP,
-        `deleted` timestamp DEFAULT NULL,
+        `created_at` timestamp NOT NULL,
+        `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+        `deleted_at` timestamp DEFAULT NULL,
         `created_by` int(11) NOT NULL,
         `updated_by` int(11),
         `deleted_by` int(11),
@@ -36,35 +36,35 @@ return [
         [
             'role_id'       => 3,
             'permission_id' => 6,
-            'created'       => date('Y-m-d H:i:s'),
+            'created_at'    => date('Y-m-d H:i:s'),
             'created_by'    => 1
         ],
 
         [
             'role_id'       => 3,
             'permission_id' => 7,
-            'created'       => date('Y-m-d H:i:s'),
+            'created_at'    => date('Y-m-d H:i:s'),
             'created_by'    => 1
         ],
         
         [
             'role_id'       => 3,
             'permission_id' => 8,
-            'created'       => date('Y-m-d H:i:s'),
+            'created_at'    => date('Y-m-d H:i:s'),
             'created_by'    => 1
         ],
 
         [
             'role_id'       => 3,
             'permission_id' => 9,
-            'created'       => date('Y-m-d H:i:s'),
+            'created_at'    => date('Y-m-d H:i:s'),
             'created_by'    => 1
         ],
 
         [
             'role_id'       => 3,
             'permission_id' => 10,
-            'created'       => date('Y-m-d H:i:s'),
+            'created_at'    => date('Y-m-d H:i:s'),
             'created_by'    => 1
         ],
     ),

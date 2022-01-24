@@ -1,0 +1,17 @@
+.cart {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 400px;
+    z-index: 1010;
+    opacity: 0.9;
+    right: 0;
+    float: right;
+    display: none;
+    color: #000;
+}
+
+.basket {
+    cursor: pointer;
+}

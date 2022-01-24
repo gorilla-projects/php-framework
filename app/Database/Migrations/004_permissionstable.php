@@ -14,9 +14,9 @@ return [
     'scheme' => "CREATE TABLE IF NOT EXISTS `permissions` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `name` varchar(80) NOT NULL,
-        `created` timestamp NOT NULL,
-        `updated` timestamp DEFAULT CURRENT_TIMESTAMP,
-        `deleted` timestamp DEFAULT NULL,
+        `created_at` timestamp NOT NULL,
+        `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+        `deleted_at` timestamp DEFAULT NULL,
         `created_by` int(11) NOT NULL,
         `updated_by` int(11),
         `deleted_by` int(11),
@@ -33,62 +33,62 @@ return [
         'type' => 'array',
         'data' => array([
             'name'       => 'show_user',
-            'created'    => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
             'created_by' => 1
         ],
 
         [
             'name'       => 'create_user',
-            'created'    => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
             'created_by' => 1
         ],
 
         [
             'name'       => 'read_user',
-            'created'    => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
             'created_by' => 1
         ],
         
         [
             'name'       => 'update_user',
-            'created'    => date('Y-m-d H:i:s'),
+            'created_at'  => date('Y-m-d H:i:s'),
             'created_by' => 1
         ],
 
         [
             'name'       => 'delete_user',
-            'created'    => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
             'created_by' => 1
         ],
     
     
         [
-            'name'       => 'show_education',
-            'created'    => date('Y-m-d H:i:s'),
+            'name'       => 'show_product',
+            'created_at' => date('Y-m-d H:i:s'),
             'created_by' => 1
         ],
 
         [
-            'name'       => 'create_education',
-            'created'    => date('Y-m-d H:i:s'),
+            'name'       => 'create_product',
+            'created_at' => date('Y-m-d H:i:s'),
             'created_by' => 1
         ],
 
         [
-            'name'       => 'read_education',
-            'created'    => date('Y-m-d H:i:s'),
+            'name'       => 'read_product',
+            'created_at' => date('Y-m-d H:i:s'),
             'created_by' => 1
         ],
         
         [
-            'name'       => 'update_education',
-            'created'    => date('Y-m-d H:i:s'),
+            'name'       => 'update_product',
+            'created_at' => date('Y-m-d H:i:s'),
             'created_by' => 1
         ],
 
         [
-            'name'       => 'delete_education',
-            'created'    => date('Y-m-d H:i:s'),
+            'name'       => 'delete_product',
+            'created_at' => date('Y-m-d H:i:s'),
             'created_by' => 1
         ]
     

@@ -17,8 +17,8 @@ class UserModel extends Model
     // Non writable fields
     protected $protectedFields = [
         'id',
-        'updated',
-        'deleted',
+        'updated_at',
+        'deleted_at',
         'updated_by',
         'deleted_by',
     ];

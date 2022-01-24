@@ -16,8 +16,6 @@ use App\Libraries\Request;
 
 require 'core/bootstrap.php';
 
-// getModels();
-
 $route = Router::load('routes.php')->direct(Request::uri(), Request::method());
 
 require $route['uri'];

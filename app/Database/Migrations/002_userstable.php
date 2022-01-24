@@ -16,9 +16,9 @@ return [
         `country` int(11),
         `city` varchar(255),
         `birthday` date,
-        `created` timestamp,
-        `updated` timestamp DEFAULT CURRENT_TIMESTAMP,
-        `deleted` timestamp DEFAULT NULL,
+        `created_at` timestamp NOT NULL,
+        `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+        `deleted_at` timestamp DEFAULT NULL,
         `created_by` int(11) NOT NULL,
         `updated_by` int(11),
         `deleted_by` int(11),
@@ -27,10 +27,14 @@ return [
 
     'relations' => [
         'ALTER TABLE `users` ADD FOREIGN KEY (`role`) REFERENCES `roles`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+
         'ALTER TABLE `users` ADD FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
         'ALTER TABLE `users` ADD FOREIGN KEY (`updated_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
         'ALTER TABLE `users` ADD FOREIGN KEY (`deleted_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
-        'ALTER TABLE `new-cv`.`users` ADD UNIQUE `email` (`email`);',
+
+        'ALTER TABLE `roles` ADD FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+        'ALTER TABLE `roles` ADD FOREIGN KEY (`updated_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+        'ALTER TABLE `roles` ADD FOREIGN KEY (`deleted_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
     ],
 
     'seeder' => [
@@ -44,7 +48,7 @@ return [
             'country'    => 156,
             'city'       => 'Duckstad',
             'birthday'   => '1956-05-19',
-            'created'    => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
             'created_by' => 1,
         ],
         
@@ -57,7 +61,7 @@ return [
             'country'    => 156,
             'city'       => 'Groningen',
             'birthday'   => '1996-03-19',
-            'created'    => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
             'created_by' => 1,
         ],
 
@@ -70,7 +74,7 @@ return [
             'country'    => 156,
             'city'       => 'Groningen',
             'birthday'   => '1996-03-19',
-            'created'    => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
             'created_by' => 1,
         ]),
     ],

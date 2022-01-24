@@ -7,7 +7,7 @@
     ->select(['id', 'name'])
     ->where('id', '>', 1)
     ->whereAnd('name', 'LIKE %gorilla')
-    ->whereIsNull('deleted')
+    ->whereIsNull('deleted_at')
     ->orderBy('name')
  */
 

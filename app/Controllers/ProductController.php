@@ -4,9 +4,9 @@ namespace App\Controllers;
 
 use App\Helpers\Helper;
 use App\Libraries\View;
-use App\Models\EducationModel;
+use App\Models\ProductModel;
 
-class EducationController extends Controller
+class ProductController extends Controller
 {
     public function create()
     {
@@ -21,20 +21,18 @@ class EducationController extends Controller
         $education['created'] = date('Y-m-d H:i:s');
         $education['created_by'] = Helper::getUserIdFromSession();
 
-        EducationModel::load()->store($education);
+        ProductModel::load()->store($education);
     }
 
     public function edit()
     {
-        $educationId = Helper::getIdFromUrl('education');
+        $productId = Helper::getIdFromUrl('product');
 
-        Helper::checkUserIdAgainstLoginId(EducationModel::class, $educationId);
-
-        $education = EducationModel::load()->get($educationId);
+        $product = ProductModel::load()->get((int)$productId);
         
-        return View::render('educations/edit.view', [
-            'education' => $education,
-            'action'    => 'education/' . $educationId . '/update',
+        return View::render('products/edit.view', [
+            'education' => $product,
+            'action'    => 'product/' . $productId . '/update',
         ]);
     }
 
