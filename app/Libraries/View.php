@@ -20,13 +20,6 @@ class View
             $view = substr($view, $slashPos);
         }
 
-        $data = [];
-        if (isset($vars)) {
-            foreach ($vars as $key => $var) {
-                $data[] = $$var;
-            }
-        }
-
         if (file_exists($_SERVER['DOCUMENT_ROOT'] . $folder . $view . '.php')) {
             require $_SERVER['DOCUMENT_ROOT'] . $folder . $view . '.php';
         } else {

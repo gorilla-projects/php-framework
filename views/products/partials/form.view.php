@@ -1,3 +1,3 @@
-<form method="POST" action="<?= $vars['action'] ?>">
+<form method="POST" action="Vars">
     
 </form>

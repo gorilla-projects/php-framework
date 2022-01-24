@@ -2,18 +2,8 @@
 
 <div class="container-fluid">
     <div class="row">
-        <h3>Opleidingen</h3>
-
+        <h3>Me</h3>
     </div>
-
-    <?php foreach ($vars['educations'] as $education) : ?>
-        <div class="row">
-            <div class="col-12">
-                <a href="education/<?= $education->id ?>/edit"><?= $education->name ?></a>
-            </div>
-        </div>
-    <?php endforeach ?>
-
 
 </div>
 
