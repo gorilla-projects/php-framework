@@ -2,19 +2,19 @@
 
 namespace App\Models;
 
-class PermissionsModel extends Model
+class CategoryModel extends Model
 {
 
-    // Name of the table
-    protected $model = "permissions";
+    protected $model = "skills";
 
+    // Max number of records when fetching all records from table
     protected $limit;
 
     // Non writable fields
     protected $protectedFields = [
         'id',
-        'updated',
-        'deleted',
+        'updated_at',
+        'deleted_at',
         'updated_by',
         'deleted_by',
     ];
@@ -22,7 +22,7 @@ class PermissionsModel extends Model
     /**
      * Load class 'staticaly'
      */
-    public static function load()
+    public static function load() 
     {
         return new static;
     }
@@ -35,4 +35,5 @@ class PermissionsModel extends Model
             $this->protectedFields
         );   
     }
+
 }

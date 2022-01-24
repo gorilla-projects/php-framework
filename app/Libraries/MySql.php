@@ -133,11 +133,11 @@ class MySql
 
     public static function delete($id, $table)
     {
-        $query = "SELECT deleted FROM " . $table . " WHERE id=" . $id . " AND deleted IS NULL";
+        $query = "SELECT deleted_at FROM " . $table . " WHERE id=" . $id . " AND deleted_at IS NULL";
         $data = self::query($query)->fetch(PDO::FETCH_ASSOC);
 
         if ($data !== false) {
-            $data['deleted'] = date('Y-m-d H:i:s');
+            $data['deleted_at'] = date('Y-m-d H:i:s');
             $data['deleted_by'] = Helper::getUserIdFromSession();
             self::update($data, $table, $id);
         }

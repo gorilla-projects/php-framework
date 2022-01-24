@@ -44,7 +44,7 @@ class RegisterController
                 'password'   => password_hash($_REQUEST['password'], PASSWORD_DEFAULT),
                 'role'       => $_REQUEST['role'] = 1,
                 'created_by' => $_REQUEST['created_by'] = 1,
-                'created'    => $_REQUEST['created'] = date('Y-m-d H:i:s'),
+                'created_at' => date('Y-m-d H:i:s'),
             ];
 
             $user = new UserModel;

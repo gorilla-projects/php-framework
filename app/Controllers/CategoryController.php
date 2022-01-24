@@ -4,18 +4,18 @@ namespace App\Controllers;
 
 use App\Helpers\Helper;
 use App\Libraries\View;
-use App\Models\SkillModel;
+use App\Models\CategoryModel;
 
-class SkillController extends Controller
+class CategoryController extends Controller
 {
 
     public function index()
     {
         $userId = Helper::getUserIdFromSession();
         
-        $skills = SkillModel::load()->all(null, $userId);
+        $skills = CategoryModel::load()->all(null, $userId);
 
-        View::render('skills/index.view', [
+        View::render('categories/index.view', [
             'skills'    => $skills,
         ]);
     }

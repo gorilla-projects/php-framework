@@ -40,7 +40,7 @@ class Model
             $fields = $this->composeQuery($selectedFields);
         }
 
-        $sql = "SELECT " . $fields . " FROM " . $this->model . " WHERE " . ($userId > 0 ? 'user_id=' . $userId . ' AND ' : '') . " deleted IS NULL" . (!empty($this->limit) ? " LIMIT " . $this->limit : "");
+        $sql = "SELECT " . $fields . " FROM " . $this->model . " WHERE " . ($userId > 0 ? 'user_id=' . $userId . ' AND ' : '') . " deleted_at IS NULL" . (!empty($this->limit) ? " LIMIT " . $this->limit : "");
 
         return MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
     }
@@ -60,7 +60,7 @@ class Model
             $fields = $this->composeQuery($selectedFields);
         }
 
-        $sql = "SELECT " . $fields .  " FROM " . $this->model . " WHERE id=" . $id . " AND deleted IS NULL";
+        $sql = "SELECT " . $fields .  " FROM " . $this->model . " WHERE id=" . $id . " AND deleted_at IS NULL";
         $res = MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
 
         if (count($res) === 0) {

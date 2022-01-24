@@ -33,10 +33,12 @@ class MigrateDatabase
         if (count($files) >= 1)
         {
             foreach ($files as $file)
-            {
+            {                
                 // skip files that doesn't represent migration data
                 if (trim(strtolower($file)) !== 'migrate.php' && $file !== '.' && $file !== '..')
                 { 
+                    echo "Migrating file: " . $file . "\n\r";
+                    
                     $migrationData = require_once __DIR__ . "/Migrations/" . $file;
 
                     if (self::$dropTable)

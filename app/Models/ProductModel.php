@@ -6,10 +6,10 @@ use App\Models\Model;
 use App\Libraries\MySql;
 use PDO;
 
-class EducationModel extends Model
+class ProductModel extends Model
 {
     // Name of the table
-    protected $model = "educations";
+    protected $model = "products";
 
     // Max number of records when fetching all records from table
     protected $limit;
@@ -17,8 +17,8 @@ class EducationModel extends Model
     // Non writable fields
     protected $protectedFields = [
         'id',
-        'updated',
-        'deleted',
+        'updated_at',
+        'deleted_at',
         'updated_by',
         'deleted_by',
     ];
@@ -46,7 +46,7 @@ class EducationModel extends Model
             return false;
         }
 
-        $sql = "SELECT * FROM " . $this->model . " WHERE user_id=" . $userId . " AND deleted IS NULL";
+        $sql = "SELECT * FROM " . $this->model . " WHERE user_id=" . $userId . " AND deleted_at IS NULL";
 
         return MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
     }
