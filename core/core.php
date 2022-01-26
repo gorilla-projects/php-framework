@@ -1,5 +1,7 @@
 <?php
 
+use App\Libraries\Router;
+
 /**
  * (var_)dump variable(s)
  * No params, just get vars from func_get_args function
@@ -135,4 +137,21 @@ function getModels()
     }
 
     $_SESSION['models'] = $models;
+}
+
+function route($name)
+{
+    if (trim($name) == '') {
+        return false;
+    }
+
+    $routes = Router::load('routes.php');
+
+    if (array_key_exists('GET', $routes->routes)) {
+        foreach ($routes->routes['GET'] as $key => $route) {
+            if (trim(strtolower($route['name'])) == trim(strtolower($name))) {
+                return $key;
+            }
+        }
+    }
 }

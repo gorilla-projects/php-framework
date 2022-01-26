@@ -25,7 +25,7 @@ Vue.component('shopping-cart', {
 
     template: `
         <div>
-            <i @click="showCart" class="btn btn-light bi bi-basket"></i>
+            <i @click="showCart" class="btn btn-light bi bi-basket text-end"></i>
             <div class="cart p-3">
                 <div class="row mb-3" v-for="item in cart.items">
                     <div class="col-md-4">

@@ -10,7 +10,10 @@ class RegisterController
 
     public function index()
     {
-        return View::render('site/register.view');
+        return View::render('site/register.view', [
+            'action'    => route('register.store'),
+            'method'    => 'POST',
+        ]);
     }
     
 

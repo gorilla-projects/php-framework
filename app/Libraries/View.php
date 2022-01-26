@@ -21,6 +21,14 @@ class View
         }
 
         if (file_exists($_SERVER['DOCUMENT_ROOT'] . $folder . $view . '.php')) {
+            if (is_array($vars)) {
+                foreach ($vars as $key => $var) {
+                    $$key = $var;
+                }
+            }
+
+            unset($vars);
+
             require $_SERVER['DOCUMENT_ROOT'] . $folder . $view . '.php';
         } else {
             require $_SERVER['DOCUMENT_ROOT'] . '/views/errors/404.view.php';
@@ -34,5 +42,14 @@ class View
     public static function redirect($uri)
     {
         header("Location: //" . $_SERVER['HTTP_HOST'] . '/' . ltrim($uri, '/'), true);
+    }
+
+    private static function parseVars($vars)
+    {
+        if (!is_array($vars) || (is_array($vars) && count($vars) > 0)) {
+            foreach ($vars as $key => $var) {
+                $$key = $var;
+            }
+        }
     }
 }

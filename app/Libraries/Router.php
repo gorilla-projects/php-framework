@@ -12,13 +12,15 @@ class Router {
         'POST' => [],
     ];
 
+    public $route = '';
+
     public static function load($file)
     {
         // Initialize / Construct class
         $router = new static;
     
         // File where routes are stored
-        require $file; 
+        require $file;
 
         return $router;
     }
@@ -64,11 +66,12 @@ class Router {
      * @param $controller (string) which controller to use
      * @param $middleWare (string) optional if you want to use any middleware
      */
-    public function get($uri, $controller, array $middleware = [])
+    public function get($uri, $controller, $name, $middleware = null)
     {
         $this->routes['GET'][$uri] = [
-            'controller' => $controller,
-            'middleware' => $middleware
+            'controller'    => $controller,
+            'middleware'    => is_array($middleware) ? $middleware : [],
+            'name'          => $name,
         ];
     }
 
@@ -78,11 +81,12 @@ class Router {
      * @param $controller (string) which controller to use
      * @param $middleWare (string) optional if you want to use any middleware
      */
-    public function post($uri, $controller, array $middleware = [])
+    public function post($uri, $controller, $name, $middleware = null)
     {
         $this->routes['POST'][$uri] = [
-            'controller' => $controller,
-            'middleware' => $middleware
+            'controller'    => $controller,
+            'middleware'    => is_array($middleware) ? $middleware : [],
+            'name'          => $name,
         ];
     }
 
