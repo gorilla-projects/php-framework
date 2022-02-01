@@ -54,7 +54,7 @@ class LoginController
                     return json_encode([
                         'success'  => true, 
                         'message'  => "Succesfull loged in.",
-                        'redirect' => $this->redirectWhenLoggedIn,
+                        'redirect' => (int)$res['role'] != 3 ? $this->redirectWhenLoggedIn : '',
                     ]);
                 } else {
                     return json_encode([
