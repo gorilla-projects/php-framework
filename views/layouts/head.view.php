@@ -10,8 +10,8 @@
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/cart.css">
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/css/cart.css">
 
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
@@ -22,9 +22,6 @@
     
     <script src="/public/js/components/cart.js"></script>
     <script src="/public/js/components/products.js"></script>
-
-    <link rel="stylesheet" href="/public/css/main.css" />
-    <link rel="stylesheet" href="/public/css/cart.css" />
 </head>
 <body>    
     <main id="app" class="content">
