@@ -41,3 +41,5 @@ $router->get('user/{id}', 'App/Controllers/UserController.php@show', 'admin.user
 $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit', 'admin.user.edit', ['update' => Permissions::class]);
 $router->post('user/{id}/update', 'App/Controllers/UserController.php@update', 'admin.user.update', ['update' => Permissions::class]);
 $router->get('user/{id}/destroy', 'App/Controllers/UserController.php@destroy', 'admin.user.destroy', ['delete' => Permissions::class]);
+
+$router->get('products', 'App/Controllers/ProductController.php@index', 'products');

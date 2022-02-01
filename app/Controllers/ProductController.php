@@ -8,6 +8,15 @@ use App\Models\ProductModel;
 
 class ProductController extends Controller
 {
+    public function index()
+    {
+        $products = ProductModel::load()->all();
+
+        return View::render('products/index.view', [
+            'products'  => $products,
+        ]);
+    }
+
     public function create()
     {
         
