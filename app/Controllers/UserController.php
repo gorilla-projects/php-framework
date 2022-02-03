@@ -16,13 +16,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = new UserModel;
-
-        $users = $user->all();
+        $users = UserModel::load()->all([
+            'id',
+            'first_name',
+            'last_name',
+            'email',
+            'birthday',
+            'city',
+        ]);
         
         return View::render('users/index.view', [
-            'users'     => $users,
-            'kiekeboo'  => 'Hallootjes',
+            'users' => $users,
         ]);
 
     }
@@ -87,7 +91,7 @@ class UserController extends Controller
 
         // Create a password, set created_by ID and set the date of creation
         $user['updated_by'] = Helper::getUserIdFromSession();
-        $user['updated'] = date('Y-m-d H:i:s');
+        $user['updated_at'] = date('Y-m-d H:i:s');
 
         UserModel::load()->update($user, $userId);
     }
@@ -98,7 +102,7 @@ class UserController extends Controller
     public function show()
     {
         $userId = Helper::getIdFromUrl('user');
-        
+
         $user = UserModel::load()->get($userId);
 
         return View::render('users/show.view', [

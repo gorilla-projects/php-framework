@@ -4,7 +4,7 @@ namespace App\Libraries;
 
 class View
 {
-    public static function render($view, array $vars = null)
+    public static function render(string $view, array $vars = null) : void
     {
         // Default view folder
         $folder = '/views/';

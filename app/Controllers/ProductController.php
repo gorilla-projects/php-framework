@@ -24,13 +24,13 @@ class ProductController extends Controller
 
     public function store()
     {
-        $education = $_POST;
+        $product = $_POST;
 
-        $education['user_id'] = Helper::getUserIdFromSession();
-        $education['created'] = date('Y-m-d H:i:s');
-        $education['created_by'] = Helper::getUserIdFromSession();
+        $product['user_id'] = Helper::getUserIdFromSession();
+        $product['created'] = date('Y-m-d H:i:s');
+        $product['created_by'] = Helper::getUserIdFromSession();
 
-        ProductModel::load()->store($education);
+        ProductModel::load()->store($product);
     }
 
     public function edit()
@@ -40,7 +40,7 @@ class ProductController extends Controller
         $product = ProductModel::load()->get((int)$productId);
         
         return View::render('products/edit.view', [
-            'education' => $product,
+            'product'   => $product,
             'action'    => 'product/' . $productId . '/update',
         ]);
     }

@@ -19,24 +19,26 @@ class HomeController
 
     public function products()
     {
-        if (Request::ajax()) {
-            try {
-                $product = new ProductModel;
-                $products = $product->all();
-
-                $success = true;
-                $message = "Success";
-            } catch (Exception $e) {
-                $products = null;
-                $success = false;
-                $message = $e->getMessage();
-            }
-
-            echo json_encode([
-                'success'   => $success,
-                'message'   => $message,
-                'products'  => $products,
-            ]);
+        if (!Request::ajax()) {
+            return;
         }
+
+        try {
+            $product = new ProductModel;
+            $products = $product->all();
+
+            $success = true;
+            $message = "Success";
+        } catch (Exception $e) {
+            $products = null;
+            $success = false;
+            $message = $e->getMessage();
+        }
+
+        echo json_encode([
+            'success'   => $success,
+            'message'   => $message,
+            'products'  => $products,
+        ]);
     }
 }

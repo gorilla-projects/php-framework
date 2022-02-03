@@ -82,7 +82,7 @@ class Model
     /**
      * Saves a record to the model
      * @param $data array
-     * @return the ID of the new record
+     * @return array of the new record
      */
     public function store(array $data)
     {
