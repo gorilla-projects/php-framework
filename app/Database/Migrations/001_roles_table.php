@@ -8,6 +8,7 @@ return [
     'scheme' => "CREATE TABLE IF NOT EXISTS `roles` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `name` varchar(80) NOT NULL,
+        `friendly_name` varchar(80) NOT NULL,
         `created_at` timestamp NOT NULL,
         `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP,
         `deleted_at` timestamp DEFAULT NULL,
@@ -21,21 +22,24 @@ return [
         'type' => 'array',
         'data' => array(
             [
-                'name'       => 'super-admin',
-                'created_at' => date('Y-m-d H:i:s'),
-                'created_by' => 1
+                'name'          => 'super-admin',
+                'friendly_name' => 'Super Dooper',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'created_by'    => 1
             ],
 
             [
-                'name'       => 'admin',
-                'created_at' => date('Y-m-d H:i:s'),
-                'created_by' => 1
+                'name'          => 'admin',
+                'friendly_name' => 'Administrator',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'created_by'    => 1
             ],
 
             [
-                'name'       => 'user',
-                'created_at' => date('Y-m-d H:i:s'),
-                'created_by' => 1
+                'name'          => 'user',
+                'friendly_name' => 'Klant',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'created_by'    => 1
             ]
         ),
     ],

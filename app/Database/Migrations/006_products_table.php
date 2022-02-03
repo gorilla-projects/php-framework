@@ -12,6 +12,7 @@ return [
         `description` TEXT,
         `price` decimal(6,2),
         `stock` int(11),
+        `color` varchar(120),
         `created_at` timestamp NOT NULL,
         `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP,
         `deleted_at` timestamp DEFAULT NULL,

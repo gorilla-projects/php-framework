@@ -2,8 +2,6 @@
 
 /** --------------------------------------------------------------------------------------------------------
  * Add your routes here.
- * At this point, variables in a route are not supported like in Laravel: user/{user_id}/edit
- *  I add this in a future version.
  * 
  * Protect your routes with one ore more Middleware classes, like WhenNotLoggedIn or Permissions.
  *  See the classes for more information.
@@ -41,3 +39,5 @@ $router->get('user/{id}', 'App/Controllers/UserController.php@show', 'admin.user
 $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit', 'admin.user.edit', ['update' => Permissions::class]);
 $router->post('user/{id}/update', 'App/Controllers/UserController.php@update', 'admin.user.update', ['update' => Permissions::class]);
 $router->get('user/{id}/destroy', 'App/Controllers/UserController.php@destroy', 'admin.user.destroy', ['delete' => Permissions::class]);
+
+$router->get('products', 'App/Controllers/ProductController.php@index', 'products');

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Libraries\View;
 use App\Helpers\Helper;
-use App\Models\EducationModel;
+use App\Models\UserModel;
 
 class ProfileController
 {
@@ -13,10 +13,10 @@ class ProfileController
         if (isset($_SESSION) && isset($_SESSION['user'])) {
             $userId = Helper::getUserIdFromSession();
 
-            $educations = EducationModel::load()->userEducations($userId);
+            $user = UserModel::load()->get($userId);
 
             return View::render('credentials/me.view', [
-                'educations'    => $educations,
+                'user'  => $user,
             ]);
         } else {
             header('Location: login');

@@ -39,15 +39,4 @@ class ProductModel extends Model
             $this->protectedFields
         );   
     }
-
-    public function userEducations($userId)
-    {
-        if ((int)$userId === 0) {
-            return false;
-        }
-
-        $sql = "SELECT * FROM " . $this->model . " WHERE user_id=" . $userId . " AND deleted_at IS NULL";
-
-        return MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
-    }
 }

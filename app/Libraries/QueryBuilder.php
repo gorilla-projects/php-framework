@@ -16,7 +16,6 @@ namespace App\Libraries;
 class QueryBuilder
 {
     public $queryBuilder = '';
-
     
     /**
      * Select fields
